@@ -58,7 +58,7 @@
 			pstmt.executeUpdate(query);
 
 			//pstmt.close();
-			//con.close();
+			con.close();
 			out.println("<script>alert('회원가입 완료'); location.href='login.jsp'</script>");
 
 		}
