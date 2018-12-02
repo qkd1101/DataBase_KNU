@@ -14,6 +14,8 @@
 			<option value="일별매출">일별 매출
 		</select>
 		<input type="submit" value="조회">
+		<a href ="Admin_Main.jsp">관리자 메뉴로 돌아가기
+		</a>
 	</form>
 </body>
 </html>
