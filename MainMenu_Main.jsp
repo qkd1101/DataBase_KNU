@@ -28,6 +28,7 @@
 			<a href="PwChange_Main.jsp">비밀번호변경</a>&nbsp;&nbsp;&nbsp;
 			<a href="Login_Main.jsp">로그아웃</a>&nbsp;&nbsp;&nbsp;
 			<a href="Shoppingbag.jsp">장바구니</a>&nbsp;&nbsp;&nbsp;
+			<a href="Check_BuyList.jsp">구매기록조회</a>&nbsp;&nbsp;&nbsp;
 			<a href="Search_Main.jsp">상품검색</a>
 			</td>
 		</tr>

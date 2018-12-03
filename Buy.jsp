@@ -81,6 +81,7 @@
 			
 		if (check) {	//재고가 충분할 경우
 			//배송지에 재고가 존재하는지 확인
+			System.out.println("재고 존재");
 			try {
 				String url = "jdbc:mysql://localhost:3306/test";
 				Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -154,6 +155,10 @@
 								System.out.println("여섯번째 :" + query3);
 								PreparedStatement pstmt3 = con.prepareStatement(query3);
 								ResultSet rs3 = pstmt3.executeQuery();
+								
+								if(!rs3.next()) {
+									out.println("<script>alert('재고가 부족합니다.'); location.href='Shoppingbag.jsp'</script>");
+								}
 
 								String ret_id = rs3.getString(1); //재고가 존재하는 매장의 아이디 저장
 
@@ -222,6 +227,43 @@
 				con = DriverManager.getConnection(url, "ksg", "12345678");
 				System.out.println("DBms connection success");
 				System.out.println("DB load success");
+				
+				//삭제하기전에 아이템의 정보를 저장
+				try {
+					query = "select * from shop_has where s_id in (select shop_id from shoppingbag where cus_no = '" + id
+							+ "' and order_date is null);";
+							
+					System.out.println(query);
+					PreparedStatement pstmt = con.prepareStatement(query);
+					ResultSet result = pstmt.executeQuery(query);
+					
+					while(result.next())
+					{
+						String s_id = result.getString(1);
+						String i_id = result.getString(2);
+						String i_quantity = result.getString(3);
+						
+						String query2 = "insert into ordered_shop_has values('" + s_id + "', '" + i_id + "', " + i_quantity + ");";
+						
+						try {
+							PreparedStatement pstmt2 = con.prepareStatement(query);
+							pstmt2.executeUpdate(query2);
+						}
+						
+						catch (Exception e) {
+							e.printStackTrace();
+							System.out.println("1");
+						}
+						
+					}
+
+					pstmt.close();
+				}
+				
+				catch (Exception e) {
+					e.printStackTrace();
+					System.out.println("1");
+				}
 
 				query = "delete from shop_has where s_id in (select shop_id from shoppingbag where cus_no = '" + id
 						+ "' and order_date is null);";
@@ -291,7 +333,7 @@
 					System.out.println("2");
 				}
 
-				out.println("<script>alert('구매 완료'); location.href='MainMenu_Main.jsp'</script>");
+				
 
 			}
 
@@ -299,6 +341,8 @@
 				e.printStackTrace();
 			}
 		}
+		
+		out.println("<script>alert('구매완료'); location.href='MainMenu_Main.jsp'</script>");
 
 	%>
 </body>
