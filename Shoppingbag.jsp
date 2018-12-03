@@ -66,7 +66,9 @@
 	%>
 	
 	</table>
+	<br><a href="Buy_Main.jsp">구매</a>
 	<br><a href="MainMenu_Main.jsp">메인메뉴로 돌아가기</a>
+	
 <%}
 	catch (Exception ex) {
 		System.err.println("sql error = " + ex.getMessage());
