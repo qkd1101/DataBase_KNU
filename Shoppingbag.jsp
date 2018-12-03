@@ -57,7 +57,7 @@
 			//out.println(result.getString("item_quantity"));
 	%>
 	<td><%=result.getString("i.price * sh.item_quantity") %></td>
-	<td><%=result.getString("item_quantity") %><a href="Subtraction.jsp?shop_id=<%=result.getString("shop_id")%>&Item_name=<%=result.getString("Item_name")%> ">빼기</a></td>
+	<td><%=result.getString("item_quantity") %><a href="Subtraction.jsp?shop_id=<%=result.getString("shop_id")%>&Item_name=<%=result.getString("Item_name")%>&item_quantity=<%=result.getString("item_quantity")%>&cost=<%=result.getString("i.price * sh.item_quantity")%> ">빼기</a></td>
 	</tr>
 	</tbody>
 	

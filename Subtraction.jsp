@@ -12,8 +12,10 @@
 
 		String iname = request.getParameter("Item_name");
 		String iname2 = request.getParameter("shop_id");
+		String quantity = request.getParameter("item_quantity");
+		String cost = request.getParameter("cost");
 		System.out.println(iname);
-		System.out.println("2" + iname2);
+		System.out.println("2" + cost);
 		
 		String query = "delete from shop_has where s_id = '" + iname2 + "' and i_id in (select * from (select sh.i_id from item i, shop_has sh where i.item_name='" + iname + "' and i.item_id =sh.i_id and sh.s_id='" + iname2 + "') A);";
 		System.out.println(query);
@@ -34,6 +36,17 @@
 
 		}
 
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			query = "update shoppingbag set total_cost = total_cost - " + cost + ", quantity = quantity - " + quantity + " where shop_id = '" + iname2 + "' and order_date is null;";
+			System.out.println(query);
+			PreparedStatement pstmt = con.prepareStatement(query);
+			pstmt.executeUpdate(query);
+		}
+		
 		catch (Exception e) {
 			e.printStackTrace();
 		}
