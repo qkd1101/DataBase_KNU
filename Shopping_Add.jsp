@@ -68,10 +68,37 @@
 		//장바구니에 추가 
 		System.out.println(S_id);
 		System.out.println(I_id);
+		boolean sh_r = false;
 		try {
-			sql = "insert into shop_has values('" + S_id + "','" + I_id + "'," + quantity + ");";
+			int tq =0;
+			sql = "select * from shop_has where s_id = '" + S_id + "' and i_id = '" + I_id + "';";
 			PreparedStatement pstmt = con.prepareStatement(sql);
-			pstmt.executeUpdate(); // 결과값을 뽑아줍니다.
+			rs = pstmt.executeQuery(); // 결과값을 뽑아줍니다.
+			
+			while(rs.next())
+			{
+				tq = rs.getInt("item_quantity");
+				sh_r = true;
+			}
+			
+			if(sh_r == true)
+			{
+				try{
+				String sql_1 = "update shop_has set item_quantity = "+ (tq+Integer.parseInt(quantity))+";";
+				PreparedStatement pstmt_1 = con.prepareStatement(sql_1);
+				pstmt_1.executeUpdate();
+				}  catch(Exception e){e.printStackTrace();}
+				
+			}
+			
+			else
+			{
+				try{
+					String sql_1 =	"insert into shop_has values('" + S_id + "','" + I_id + "'," + quantity + ");";
+					PreparedStatement pstmt_1 = con.prepareStatement(sql_1);
+					pstmt_1.executeUpdate();
+					}  catch(Exception e){e.printStackTrace();}
+			}
 
 		} catch (Exception e) {
 			e.printStackTrace();

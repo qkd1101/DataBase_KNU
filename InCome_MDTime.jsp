@@ -21,7 +21,9 @@
 				<td><input type="hidden" name="mode" value="A"></td>
 			</tr>
 			<%
-				} else if (profit.equals("월별매출")) {
+				}
+
+				else if (profit.equals("월별매출")) {
 			%>
 			<tr>
 				<td>year :</td>
@@ -30,7 +32,9 @@
 				<td><input type="text" name="month"></td>
 				<td><input type="hidden" name="mode" value="B"></td>
 				<%
-					} else if (profit.equals("일별매출")) {
+					}
+
+					else if (profit.equals("일별매출")) {
 				%>
 				<td>year :</td>
 				<td><input type="text" name="year"></td>

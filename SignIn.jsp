@@ -107,7 +107,7 @@
 				System.out.println("2");
 			}
 			
-			out.println("<script>alert('회원가입 완료'); location.href='Login_Main.jsp'</script>");
+			out.println("<script>alert('회원가입 완료'); location.href='Recommand.jsp'</script>");
 
 		}
 

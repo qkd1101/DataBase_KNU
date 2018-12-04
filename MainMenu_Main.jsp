@@ -25,8 +25,9 @@
 		<tr>
 			<td><a href="MainCate_Main.jsp">카테고리 선택</a>&nbsp;&nbsp;&nbsp;
 			<a href="Mem_Info_Change_Main.jsp">회원정보수정</a>&nbsp;&nbsp;&nbsp;
-			<a href="PwChange_Main.jsp">Password 변경</a>&nbsp;&nbsp;&nbsp;
+			<a href="PwChange_Main.jsp">비밀번호변경</a>&nbsp;&nbsp;&nbsp;
 			<a href="Login_Main.jsp">로그아웃</a>&nbsp;&nbsp;&nbsp;
+			<a href="Shoppingbag.jsp">장바구니</a>&nbsp;&nbsp;&nbsp;
 			<a href="Search_Main.jsp">상품검색</a>
 			</td>
 		</tr>
