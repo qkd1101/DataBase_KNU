@@ -61,7 +61,7 @@
 			String url = "jdbc:mysql://localhost:3306/test";
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
 			System.out.println("after forName");
-			con = DriverManager.getConnection(url, "root", "");
+			con = DriverManager.getConnection(url, "ksg", "12345678");
 			System.out.println("DBms connection success");
 			System.out.println("DB load success");
 			PreparedStatement pstmt = con.prepareStatement(query);

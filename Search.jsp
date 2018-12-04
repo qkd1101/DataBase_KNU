@@ -1,4 +1,3 @@
-<
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="java.sql.*"%>
 <!DOCTYPE html>
@@ -18,7 +17,7 @@
 			String url = "jdbc:mysql://localhost:3306/test";
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
 			System.out.println("after forName");
-			con = DriverManager.getConnection(url, "root", "");
+			con = DriverManager.getConnection(url, "ksg", "12345678");
 			System.out.println("DBms connection success");
 			System.out.println("DB load success");
 			PreparedStatement pstmt = con.prepareStatement(query);
@@ -41,7 +40,7 @@
 			}
 		%>
 
-	<a href="Search_Main.jsp">다시 검색하기
+	<a href="Search_Main.jsp">다시 검색하기</a>
 	<% 
 		}
 

@@ -1,4 +1,3 @@
-<%@ page import="java.sql.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="java.sql.*"%>
 <!DOCTYPE html>
@@ -59,7 +58,7 @@
 			String url = "jdbc:mysql://localhost:3306/test";
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
 			System.out.println("after forName");
-			con = DriverManager.getConnection(url, "root", "");
+			con = DriverManager.getConnection(url, "ksg", "12345678");
 			System.out.println("DBms connection success");
 			System.out.println("DB load success");
 			PreparedStatement pstmt = con.prepareStatement(query);
@@ -107,7 +106,11 @@
 				System.out.println("2");
 			}
 			
-			out.println("<script>alert('회원가입 완료'); location.href='Recommand.jsp'</script>");
+			//id와 password를 저장 후 로그인 됨
+			request.getSession().setAttribute("id",id);
+			request.getSession().setAttribute("pw",password);
+			
+			out.println("<script>alert('회원가입 완료'); location.href='Item_Recmmend.jsp?age=" + age + "&job="+ job +"&sex="+ sex +"'</script>");
 
 		}
 

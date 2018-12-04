@@ -21,7 +21,7 @@
 		String url = "jdbc:mysql://localhost:3306/test";
 		Class.forName("com.mysql.jdbc.Driver").newInstance();
 		System.out.println("after forName");
-		con = DriverManager.getConnection(url, "root", "");
+		con = DriverManager.getConnection(url, "ksg", "12345678");
 		System.out.println("DBms connection success");
 		System.out.println("DB load success");
 		PreparedStatement pstmt = con.prepareStatement(sql);
@@ -29,7 +29,6 @@
 		while(rs.next()){
 					check = true; // rs가 한번이라도  돌면 count 의 값을 올려줍니다.
 		}
-		
 		if(check == false){
 			out.println("<script>alert('고객의 정보가 없습니다.'); location.href='Login_Main.jsp'</script>"); // 만약에 rs 가 한번도 안돌았으면
 		}

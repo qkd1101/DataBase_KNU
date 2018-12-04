@@ -5,7 +5,21 @@
 <head>
 <meta charset="UTF-8">
 <title>회원정보 수정</title>
-
+<script>
+function check() {
+	if(fo.address.value == "") {
+		alert('주소를 입력해주세요.');
+		fo.address.focus();
+		return false;
+	}
+	
+	if(fo.phonenumber.value == "") {
+		alert('휴대폰 번호를 입력해주세요.');
+		fo.phonenumber.focus();
+		return false;
+	}
+}
+</script>
 </head>
 <body>
 	<form action="Mem_Info_Change.jsp" method="post" name="fo" onsubmit="return check()">
@@ -36,7 +50,7 @@
 			<tr>
 				<td>주소 :</td>
 				<td><input type="text" name="address"></td>
-			</tr >
+			</tr>
 
 			<tr>
 				<td>휴대폰번호 :</td>

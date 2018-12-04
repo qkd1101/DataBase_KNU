@@ -25,6 +25,7 @@
 <%
 //고객의 ID를 받아와 장바구니 목록을 보여준다.
 	request.setCharacterEncoding("utf-8");
+
 	String id = (String) request.getSession().getAttribute("id");	//id 정보를 받아옴.
 	Connection con = null;
 	String query = "select i.item_name, i.price * sh.item_quantity, sh.item_quantity, sb.shop_id from item i, shoppingbag sb, shop_has sh where sb.cus_no = '" + id + "' and sb.shop_id = sh.s_id and sh.i_id = i.item_id;";
@@ -34,7 +35,7 @@
 		String url = "jdbc:mysql://localhost:3306/test";
 		Class.forName("com.mysql.jdbc.Driver").newInstance();
 		System.out.println("after forName");
-		con = DriverManager.getConnection(url, "root", "");
+		con = DriverManager.getConnection(url, "ksg", "12345678");
 		System.out.println("DBms connection success");
 		System.out.println("DB load success");
 		PreparedStatement pstmt = con.prepareStatement(query);
@@ -65,7 +66,9 @@
 	%>
 	
 	</table>
+	<br><a href="Buy_Main.jsp">구매</a>
 	<br><a href="MainMenu_Main.jsp">메인메뉴로 돌아가기</a>
+	
 <%}
 	catch (Exception ex) {
 		System.err.println("sql error = " + ex.getMessage());

@@ -14,12 +14,18 @@ function check_same() {
 		fo.password1.focus();
 		return false;
 	}
+	
+	if(fo.password1.value == "") {
+		alert('비밀번호를 입력해주세요.');
+		fo.password1.focus();
+		return false;
+	}
 }
 </script>
 </head>
 <body>
 	<form action="PwChange.jsp" method="post" name="fo" onsubmit="return check_same()">
-		<h1>비밀번 수정</h1>
+		<h1>비밀번호 수정</h1>
 		<hr>
 		<table>
 

@@ -76,7 +76,6 @@ function check() {
 			</tr>
 
 			<tr>
-			
 				<td>휴대폰번호 :</td>
 				<td><input type="text" name="phonenumber"></td>
 			</tr>
