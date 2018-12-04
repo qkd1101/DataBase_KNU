@@ -3,6 +3,16 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<script>
+function check() {
+	if(fo.quantity.value == "") {
+		alert('담을 수량을 입력해주세요.');
+		fo.quantity.focus();
+		return false;
+	}
+}
+</script>
+
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -37,7 +47,7 @@ table.type09 td {
 </head>
 <body>
 
-	<form action="Shopping_Add.jsp" method="post">
+	<form action="Shopping_Add.jsp" method="post" name="fo" onsubmit="return check()">
 		<table class="type09">
 			<thead>
 				<tr>

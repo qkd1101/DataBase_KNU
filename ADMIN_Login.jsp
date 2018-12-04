@@ -13,8 +13,9 @@
 	String id = request.getParameter("id");
 	
 	System.out.print(id);
-	if(id.charAt(0) != 'A')		//id의 첫번째 글자가 A가 아니면, 관리자 계정은 ADMIN으로 시작함
+	if(!id.toLowerCase().matches("admin.*"))
 		out.println("<script>alert('관리자 계정으로 로그인해주세요.'); location.href='ADMIN_Login_Main.jsp'</script>");
+	
 	
 	String password = request.getParameter("password");
 	String sql = "SELECT password FROM customer WHERE cus_id = '"+id+"'"+" AND password = '"+password+"'";
