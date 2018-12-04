@@ -21,6 +21,11 @@
 		
 		String query = "update customer set name = ";
 		
+		if(phonenumber.length() >= 12)
+			out.println("<script>alert('휴대폰번호는 11자리 이하로 해주세요.'); location.href='Mem_Info_Change_Main.jsp'</script>");
+		
+		
+		
 		name = name.toLowerCase();
 		if(name.equals(""))
 			query += "null";

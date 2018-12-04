@@ -10,7 +10,7 @@
 	<form action="Stock_Search.jsp" method="post">
 		<input type="text" name="search"> <input
 			type="submit" value="search"> <a
-			href="MainMenu_Main.jsp">메인 메뉴로 돌아가기</a>&nbsp;&nbsp;&nbsp;
+			href="Admin_Main_Menu_Main.jsp">관리자 메뉴로 돌아가기</a>&nbsp;&nbsp;&nbsp;
 	</form>
 </body>
 </html>

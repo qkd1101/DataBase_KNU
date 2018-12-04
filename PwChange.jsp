@@ -15,6 +15,10 @@
 		String password = (String) request.getSession().getAttribute("password");
 		String password1 = request.getParameter("password1");
 		
+		if(password1.length() >= 17)
+			out.println("<script>alert('비밀번호는 16자리 이하로 해주세요.'); location.href='PwChange_Main.jsp'</script>");
+
+		
 		String query = "update customer set password = ";
 		
 		if(password1.equals(""))

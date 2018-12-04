@@ -19,7 +19,7 @@ function check_same() {
 </head>
 <body>
 	<form action="PwChange.jsp" method="post" name="fo" onsubmit="return check_same()">
-		<h1>비밀번 수정</h1>
+		<h1>PW 수정</h1>
 		<hr>
 		<table>
 

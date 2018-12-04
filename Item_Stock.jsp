@@ -37,7 +37,7 @@
 				out.println(result.getString("Item_name"));
 				out.println("아이템ID : ");
 				i_id = result.getString("item_id");
-				out.println(result.getString(i_id));
+				out.println(i_id);
 				out.println("재고: ");
 				out.println(result.getString("stock"));
 			}
@@ -46,18 +46,6 @@
 			e.printStackTrace();
 		}
 
-		query = "select * from retailer where item_id = '" + i_id + "';";
-		try {
-			PreparedStatement pstmt = con.prepareStatement(query);
-			ResultSet result = pstmt.executeQuery(query);
-
-			while (result.next()) {
-
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 	%>
 
 	<form action="Stock_Order.jsp" method="post">
@@ -98,9 +86,6 @@
 			</tr>
 		</table>
 	</form>
-	<%
-		
-	%>
 
 </body>
 </html>
